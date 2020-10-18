@@ -1,23 +1,24 @@
 {
-  "name": "london",
+  "name": "bruno",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "node ./database-test.js && next dev",
     "build": "next build",
     "start": "next start"
   },
   "dependencies": {
-    "isomorphic-unfetch": "^3.1.0",
-    "json-server": "^0.16.2",
-    "next": "9.5.3",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "sqlite": "^4.0.15"
+    "isomorphic-unfetch": "3.0.0",
+    "next": "9.2.1",
+    "react": "16.12.0",
+    "react-dom": "16.12.0",
+    "sqlite": "3.0.3",
+    "swr": "0.1.17"
   },
   "devDependencies": {
-    "@types/node": "^14.11.8",
-    "@types/react": "^16.9.52",
-    "typescript": "^4.0.3"
+    "@types/node": "13.7.7",
+    "@types/react": "16.9.23",
+    "json-server": "0.16.1",
+    "typescript": "3.8.3"
   }
 }
