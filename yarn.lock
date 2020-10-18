@@ -5261,6 +5261,11 @@ split-string@^3.0.1, split-string@^3.0.2:
   dependencies:
     extend-shallow "^3.0.0"
 
+sqlite@^4.0.15:
+  version "4.0.15"
+  resolved "https://registry.yarnpkg.com/sqlite/-/sqlite-4.0.15.tgz#071e0577afb327fbd74a75354ea15964378392e3"
+  integrity sha512-irPPTrbVoDvwzRGpe0v8vxpNwMl+q0tXQzffQTcCUnaJzQFO0hfLLvFwGDKxd6vYBuvEr3uvPkObVoGOvVsmzA==
+
 ssri@^6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/ssri/-/ssri-6.0.1.tgz#2a3c41b28dd45b62b63676ecb74001265ae9edd8"

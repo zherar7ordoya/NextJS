@@ -1,8 +1,10 @@
 # REPOSITORIO LOCAL
 
-## Procedimiento para conectar a GitHub
-
 (Debido al cambio de MASTER a MAIN)
+
+
+
+## Procedimiento para conectar a GitHub
 
 > Advertencia: no toques nada antes de hacer esto.
 
@@ -21,13 +23,26 @@ git push
 
 ```
 
+## Procedimiento para actualizar repositorio local
+
+(Hacer cuando se está seguro que la copia local debe ser sobre-escrita)
+
+Consola:
+
+```markdown
+git reset --hard HEAD
+git pull
+yarn install
+
+```
+
 
 
 ---
 
 
 
-## TEMPORALES
+### TEMPORALES
 
 1. Para contar con un servidor JSON: `npm install -g json-server`
 2. Crear un db.json
