@@ -1,7 +1,12 @@
 export const TaskRow = ({ task, toggleTask }) => {
     return (
         <tr key={task.name}>
-            <td>{task.name}</td>
+            <td 
+            style={{ textDecoration: task.done ? 'line-through' : 'none' }}
+            className='d-flex justify-content-between'
+            >
+                {task.name}
+                </td>
             <td>
                 <input
                     type="checkbox"

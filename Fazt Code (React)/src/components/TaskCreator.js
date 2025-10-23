@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 
-export const TaskCreator = ({createNewTask}) => {
+export const TaskCreator = ({ createNewTask }) => {
 
     const [newTaskName, setNewTaskName] = useState('');
 
@@ -12,18 +12,25 @@ export const TaskCreator = ({createNewTask}) => {
     }
 
     return (
-        <form onSubmit={e => handleSubmit(e)}>
+        <form onSubmit={e => handleSubmit(e)} className='my-2 row'>
 
+            <div className='col-9'>
                 <input
                     type="text"
                     placeholder="Enter a new task"
                     value={newTaskName}
                     onChange={(e) => setNewTaskName(e.target.value)}
+                    className='form-control'
                 />
+            </div>
 
-                <button type="submit">Add Task</button>
+            <div className='col-3'>
+                <button
+                type="submit"
+                className='btn btn-primary btn-sm'>Add Task</button>
+            </div>
 
-            </form>
+        </form>
     );
 }
 

@@ -1,18 +1,24 @@
 import { TaskRow } from './TaskRow';
 
-export const TaskTable = ({ tasks, toggleTask }) => {
+export const TaskTable = ({ tasks, toggleTask, showCompleted = false }) => {
+
+    const taskTableRows = (doneValue) => {
+        return (tasks
+            .filter(task => task.done === doneValue)
+            .map(task => (<TaskRow key={task.name} task={task} toggleTask={toggleTask} />))
+        );
+    }
+
     return (
-        <table>
+        <table className='table table-dark table-striped table-bordered border-secondary'>
             <thead>
-                <tr>
+                <tr className='table-primary'>
                     <th>Task</th>
                     <th>Status</th>
                 </tr>
             </thead>
             <tbody>
-                {tasks.map(task => (
-                    <TaskRow key={task.name} task={task} toggleTask={toggleTask} />
-                ))}
+                {taskTableRows(showCompleted)}
             </tbody>
         </table>
     );
