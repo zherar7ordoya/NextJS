@@ -19,7 +19,7 @@ export const TaskCreator = ({ createNewTask }) => {
                     type="text"
                     placeholder="Enter a new task"
                     value={newTaskName}
-                    onChange={(e) => setNewTaskName(e.target.value)}
+                    onChange={e => setNewTaskName(e.target.value)}
                     className='form-control'
                 />
             </div>
@@ -27,7 +27,7 @@ export const TaskCreator = ({ createNewTask }) => {
             <div className='col-3'>
                 <button
                 type="submit"
-                className='btn btn-primary btn-sm'>Add Task</button>
+                className='btn btn-primary'>Add task</button>
             </div>
 
         </form>

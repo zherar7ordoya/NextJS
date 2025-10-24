@@ -14,7 +14,6 @@ export const TaskTable = ({ tasks, toggleTask, showCompleted = false }) => {
             <thead>
                 <tr className='table-primary'>
                     <th>Task</th>
-                    <th>Status</th>
                 </tr>
             </thead>
             <tbody>
