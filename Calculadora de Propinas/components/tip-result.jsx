@@ -1,3 +1,14 @@
+
+
+
+
+
+
+
+
+
+
+
 /**
  * Result display component (JSX without TypeScript)
  * This demonstrates .jsx files working in the project
