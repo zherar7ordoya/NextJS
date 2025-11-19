@@ -1,3 +1,0 @@
-# React Basics
-
-ToDo project.
