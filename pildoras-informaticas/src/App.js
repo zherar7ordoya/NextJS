@@ -1,26 +1,26 @@
-import React, { useState } from "react";
+import { useState } from "react";
 
 function GaleriaDeImagenes() {
     const [imagenes, setImagenes] = useState([
         {
             src: "imgs/paisaje1.jpg",
             alt: "Imagen 1",
-            caption: "Pie de foto Imagen 1",
+            caption: "Cascada",
         },
         {
             src: "imgs/paisaje2.jpg",
             alt: "Imagen 2",
-            caption: "Pie de foto Imagen 2",
+            caption: "Lago",
         },
         {
             src: "imgs/paisaje3.jpg",
             alt: "Imagen 3",
-            caption: "Pie de foto Imagen 3",
+            caption: "Bosque",
         },
         {
             src: "imgs/paisaje4.jpg",
             alt: "Imagen 4",
-            caption: "Pie de foto Imagen 4",
+            caption: "Puerto",
         },
     ]);
     const [url, setUrl] = useState("");
@@ -41,7 +41,12 @@ function GaleriaDeImagenes() {
 
     return (
         <div>
-            <h1 style={{ textAlign: "center" }}>Galería de imágenes</h1>
+            <h1
+                style={{ textAlign: "center" }}
+                className="text-3xl font-bold underline"
+            >
+                Galería de imágenes
+            </h1>
             <div style={{ textAlign: "center", marginBottom: "20px" }}>
                 <input
                     id="image-url"
