@@ -1,8 +1,13 @@
-.centrar-titulo {
-    color: red;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+div {
+    @apply flex items-center justify-center h-screen bg-gray-100;
 }
 
-.centrar-suma {
-    text-align: center;
-    color: blue;
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
 }
