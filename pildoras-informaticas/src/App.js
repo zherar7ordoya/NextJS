@@ -1,32 +1,25 @@
 import "./App.css";
-import { useRef } from "react";
-import video from "./assets/video.mp4";
-
+import { useState, useRef } from "react";
 
 function App() {
+    const [dollars, setDollars] = useState(null);
+    const eurosInputRef = useRef(null); // Referencia al elemento DOM
 
-    const videoRef = useRef(null);
-
-    const handlePlay = () => {
-        videoRef.current.play();
-    }
-
-    const handlePause = () => {
-        videoRef.current.pause();
+    const convert = () => {
+        const eurosValue = Number(eurosInputRef.current.value);
+        if (!isNaN(eurosValue)) {
+            // Asumiendo un tipo de cambio actual de 1.08 [1, 2]
+            setDollars(eurosValue * 1.08);
+        }
     }
 
     return <section>
-        <video ref={videoRef} width="750" height="500">
-            <source src={video} type="video/mp4" />
-            Your browser does not support the video tag.
-        </video>
-        <div>
-            <button onClick={handlePlay}>Play</button>
-            <button onClick={handlePause}>Pause</button>
-        </div>
+        <h2>Convertidor de Euros a Dólares</h2>
+        {/* Asignamos la referencia al input */}
+        <input type="text" placeholder="Euros" ref={eurosInputRef} />
+        <button onClick={convert}>Convertir</button>
+        <h3>{dollars !== null && `Dólares: $${dollars.toFixed(2)}`}</h3>
     </section>
-
 }
-
 
 export default App;
