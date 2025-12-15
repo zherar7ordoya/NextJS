@@ -1,9 +1,16 @@
 import "./App.css";
 import { useState, useRef, useEffect } from "react";
 import { Contador } from "./components/Contador";
-
+import { Saludo } from "./components/Saludo";
 
 function App() {
+
+    const usuario = {
+        nombre: "Gerardo",
+        apellido: "Tordoya",
+        edad: 28,
+        género: "masculino"
+    };
 
     const miArray = () => {
         const numerosArray = [15, 37, 26, 95, 81];
@@ -62,7 +69,14 @@ function App() {
         <hr />
         <h2>Componente desde función</h2>
         <Contador />
+
+        {/* Ejercicio PROPS */}
+        <hr />
+        <h2>Componente con Props</h2>
+        <Saludo usuario={usuario} />
     </section>
 }
+
+
 
 export default App;
