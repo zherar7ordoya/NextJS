@@ -1,5 +1,7 @@
 import "./App.css";
 import { useState, useRef, useEffect } from "react";
+import { Contador } from "./components/Contador";
+
 
 function App() {
 
@@ -20,13 +22,9 @@ function App() {
     useEffect(() => {
         const fetchCambio = async () => {
             try {
-                const response = await fetch("https://v6.exchangerate-api.com/v6/fcc76650cde7b9f6eb15d913/latest/EUR");
-                const data = await response.json();
-                console.log(data);
                 const valor = await fetch("https://v6.exchangerate-api.com/v6/fcc76650cde7b9f6eb15d913/latest/EUR")
                     .then(res => res.json())
                     .then(data => data.conversion_rates.USD);
-                console.log("Valor de cambio EUR a USD:", valor);
                 setValorCambio(valor);
             } catch (error) {
                 console.error("Error fetching exchange rate:", error);
@@ -49,13 +47,21 @@ function App() {
     }
 
     return <section>
+        {/* Ejercicio API */}
         <h2>Convertidor de Euros a Dólares</h2>
-        {/* Asignamos la referencia al input */}
         <input type="text" placeholder="Euros" ref={eurosInputRef} id="euros-input" />
         <button onClick={convert}>Convertir</button>
         <h3>{dollars !== null && `Dólares: $${dollars.toFixed(2)}`}</h3>
+
+        {/* Ejercicio MAP */}
+        <hr />
         <h2>Mi array de números</h2>
         {miArray()}
+
+        {/* Ejercicio Componente */}
+        <hr />
+        <h2>Componente desde función</h2>
+        <Contador />
     </section>
 }
 
