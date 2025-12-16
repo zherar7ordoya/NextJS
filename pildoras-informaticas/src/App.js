@@ -7,9 +7,23 @@ function App() {
     const [tipo, setTipo] = useState("Hotel");
     const [dias, setDias] = useState(0);
 
-    // 2. Cálculo derivado (no necesitas un tercer estado ni un useRef)
-    const precioPorDia = tipo === "Hotel" ? 50 : 40;
-    const totalPagar = dias * precioPorDia;
+    // 2. Definimos los precios base
+    const precioPorDia = tipo === "Hotel" ? 50 : 45;
+    const subtotal = dias * precioPorDia;
+
+    // 3. Calculamos el descuento (Lógica de negocio clara y legible)
+    let descuento = 0;
+
+    if (tipo === "Hotel") {
+        if (dias > 5) descuento = 35;
+        else if (dias > 3) descuento = 25;
+    } else if (tipo === "Auto") {
+        if (dias > 7) descuento = 30;
+        else if (dias > 3) descuento = 15;
+    }
+
+    // 4. Resultado final derivado
+    const totalPagar = subtotal > 0 ? Math.max(0, subtotal - descuento) : 0;
 
     return (
         <section>
