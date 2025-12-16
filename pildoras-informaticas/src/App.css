@@ -34,3 +34,32 @@ hr {
     margin: 20px 0;
     border: 1px solid black;
 }
+
+select {
+    margin: 10px;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="text"] {
+    margin: 10px;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+input[type="number"] {
+    margin: 10px;
+    padding: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+label {
+    font-size: 16px;
+    margin-top: 10px;
+}
