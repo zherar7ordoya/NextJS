@@ -30,6 +30,11 @@ button {
     transition: background-color 0.3s ease;
 }
 
+button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
 hr {
     width: 80%;
     margin: 20px 0;
@@ -73,4 +78,17 @@ h1 {
     text-shadow: 2px 2px 4px rgba(100, 100, 100, 0.7);
     margin-bottom: 20px;
     text-align: center;
+}
+
+p {
+    font-size: 18px;
+    margin: 20px;
+    text-align: center;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }

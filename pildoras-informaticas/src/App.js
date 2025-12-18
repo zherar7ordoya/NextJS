@@ -1,8 +1,8 @@
 import "./App.css";
-import { Totalizador } from "./components/Totalizador";
+import { Quixote } from "./components/Quixote";
 
 function App() {
-    return (<Totalizador />);
+    return (<Quixote />);
 }
 
 export default App;
