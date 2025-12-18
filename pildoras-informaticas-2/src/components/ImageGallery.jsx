@@ -1,9 +1,11 @@
-import React from "react";
-import imagesData from "../data/images";
+import ejerciciosData from "../data/rutinas";
 import { useState } from "react";
 
-const ImageGallery = () => {
-    const { titulo, rutina = [] } = imagesData[0] || { titulo: "", rutina: [] };
+const ejercicioGallery = () => {
+    const { titulo, rutina = [] } = ejerciciosData[0] || {
+        titulo: "",
+        rutina: [],
+    };
 
     const [clicked, setClicked] = useState(null);
 
@@ -11,18 +13,17 @@ const ImageGallery = () => {
         <section>
             <h1>{titulo}</h1>
             <div className="image-gallery">
-                {rutina.map((image, index) => (
+                {rutina.map((ejercicio, index) => (
                     <div key={index} className="image-item">
                         <img
-                            src={image.img}
-                            alt={image.ejercicio}
-                            onClick={() => setClicked(image)}
+                            src={ejercicio.img}
+                            alt={ejercicio.ejercicio}
+                            onClick={() => setClicked(ejercicio)}
                         />
                     </div>
                 ))}
             </div>
             <div>
-                {/* show full size and details of clicked image */}
                 {clicked && (
                     <>
                         <h2>{clicked.ejercicio}</h2>
@@ -40,4 +41,4 @@ const ImageGallery = () => {
     );
 };
 
-export default ImageGallery;
+export default ejercicioGallery;
