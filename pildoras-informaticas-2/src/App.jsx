@@ -1,8 +1,11 @@
 import "./App.css";
-import Rutina01 from "./components/Rutina01.jsx";
+import Rutina from "./components/Rutina.jsx";
+import FilterableProductTable from "./components/FilterableProductTable.jsx";
+import PRODUCTS from "./data/products.js";
 
 function App() {
-    return <Rutina01 />;
+    return <Rutina rutina={0} />;
+    //return <FilterableProductTable products={PRODUCTS} />;
 }
 
 export default App;
