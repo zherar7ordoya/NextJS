@@ -8,18 +8,26 @@
 .image-item {
     position: relative;
     width: 200px;
-    height: 200px;
+    height: auto;
     overflow: hidden;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: transform 0.3s;
+    border: 1px solid;
 }
 
 .full-size-image {
-    width: 100%;
+    width: 400px;
     height: auto;
     border-radius: 10px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     margin-top: 20px;
+}
+
+/* Center page content container */
+.container {
+    max-width: 960px;
+    margin-inline: auto;
+    padding: 16px;
 }
