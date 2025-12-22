@@ -1,90 +1,101 @@
 import { useState, useEffect } from "react";
-import ejerciciosData from "../data/rutinas";
+import trabajosData from "../data/rutinas";
 
-const Rutina = (props) => {
-    const { titulo, rutina = [] } = ejerciciosData[props.rutina] || {};
+console.log(trabajosData);
 
-    // ESTADOS
-    const [ejercicioActual, setEjercicioActual] = useState(null); // Para clic manual
-    const [contador, setContador] = useState(0); // Cronómetro
-    const [trainingIndex, setTrainingIndex] = useState(null); // Índice del modo entrenamiento
-    const [crono, setCrono] = useState(false); // ¿Modo automático ON?
+const Rutina = () => {
+    //
+    const [trabajoActual, setTrabajoActual] = useState(0);
+    const [ejercicioActual, setEjercicioActual] = useState(0);
+    const trabajo = trabajosData[trabajoActual];
+    const [contador, setContador] = useState(5);
+    // Controla el botón
+    const [crono, setCrono] = useState(false);
+    //
+    useEffect(() => {
+        //
+        if (crono == false) return;
 
-    const startRoutine = () => {
-        setTrainingIndex(0);
-        setEjercicioActual(rutina[0]); // Mostrar el primero de inmediato
+        setTimeout(() => {
+            if (contador > 0) setContador(current => current - 1);
+            else {
+                if (ejercicioActual < trabajo.rutina.length - 1) {
+                    setEjercicioActual(current => current + 1);
+                    setContador(5);
+                }
+                else {
+                    setCrono(false);
+                    setContador(5);
+                    setEjercicioActual(0);
+                }
+            }
+        }, 1000);
+    }, [
+        contador,
+        crono,
+        trabajoActual,
+        ejercicioActual,
+        trabajo.rutina.length,
+    ]);
+
+    const siguienteTrabajo = () => {
+        setTrabajoActual((current) => (current + 1) % trabajosData.length);
+        setEjercicioActual(0);
         setContador(5);
-        setCrono(true);
+        setCrono(false);
     };
 
-    useEffect(() => {
-        let timer = null;
-
-        if (crono && contador > 0) {
-            timer = setInterval(() => setContador((t) => t - 1), 1000);
-        } else if (crono && contador === 0) {
-            // Lógica de pasar al siguiente ejercicio
-            const nextIndex = trainingIndex + 1;
-
-            if (nextIndex < rutina.length) {
-                setTrainingIndex(nextIndex);
-                setEjercicioActual(rutina[nextIndex]);
-                setContador(5);
-            } else {
-                setCrono(false);
-                setTrainingIndex(null);
-            }
-        }
-
-        return () => clearInterval(timer);
-    }, [crono, contador, trainingIndex, rutina]);
+    const anteriorTrabajo = () => {
+        setTrabajoActual(
+            (current) =>
+                (current - 1 + trabajosData.length) % trabajosData.length
+        );
+        setEjercicioActual(0);
+        setContador(5);
+        setCrono(false);
+    };
 
     return (
-        <section className="container">
-            <h1>{titulo}</h1>
-            <button onClick={startRoutine} disabled={crono}>
-                {crono ? "Entrenando..." : "Start Routine"}
-            </button>
+        <div>
+            <center>
+                <h1>{trabajo.titulo}</h1>
+                <button onClick={anteriorTrabajo}>Anterior rutina</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <button onClick={() => setCrono(true)} disabled={crono}>
+                    INICIAR RUTINA
+                </button>
+                {/* <button onClick={btnOnOff}>PAUSAR RUTINA</button> */}
+                <button onClick={() => setCrono(!crono)}>
+                    {crono ? "PAUSAR" : "CONTINUAR"}
+                </button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <button onClick={siguienteTrabajo}>Siguiente rutina</button>
+            </center>
 
-            {crono && <h2>Siguiente en: {contador}s</h2>}
+            <center>Tiempo {contador} segundos</center>
 
-            <div
-                className="image-gallery"
-                style={{ display: "flex", gap: "10px" }}
-            >
-                {rutina.map((ejer, index) => (
-                    <div
-                        key={index}
-                        className={`image-item ${
-                            trainingIndex === index ? "active-border" : ""
-                        }`}
-                        onClick={() => !crono && setEjercicioActual(ejer)} // Bloqueamos clic manual si está entrenando
-                        style={{
-                            cursor: "pointer",
-                            border:
-                                trainingIndex === index
-                                    ? "2px solid red"
-                                    : "none",
-                        }}
-                    >
-                        <img src={ejer.img} alt={ejer.ejercicio} width="100" />
-                    </div>
-                ))}
-            </div>
-
-            {/* SECCIÓN DETALLE: Muestra lo seleccionado MANUALMENTE o por el ENTRENAMIENTO */}
-            {ejercicioActual && (
-                <div className="detail-view">
-                    <h2>{ejercicioActual.ejercicio}</h2>
-                    <p>Repeticiones: {ejercicioActual.reps}</p>
+            {/* <Row> */}
+            {trabajo.rutina.map((ejercicio, indice) => (
+                <div key={indice}>
                     <img
-                        src={ejercicioActual.img}
-                        alt="preview"
-                        className="full-size-image"
+                        src={ejercicio.img}
+                        onClick={() => setEjercicioActual(indice)}
+                        alt=""
+                        width={20}
                     />
                 </div>
-            )}
-        </section>
+            ))}
+            {/* </Row> */}
+
+            {/* <ImagenSeleccionada> */}
+            <img src={trabajo.rutina[ejercicioActual].img} alt="" width="500" />
+
+            <div className="info-descripcion">
+                <h3>Nombre: {trabajo.rutina[ejercicioActual].ejercicio}</h3>
+                <p>Repeticiónes: {trabajo.rutina[ejercicioActual].reps}</p>
+            </div>
+            {/* </ImagenSeleccionada> */}
+        </div>
     );
 };
 
