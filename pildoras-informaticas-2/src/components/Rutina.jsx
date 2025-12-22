@@ -1,8 +1,6 @@
 import { useState, useEffect } from "react";
 import trabajosData from "../data/rutinas";
 
-console.log(trabajosData);
-
 const Rutina = () => {
     //
     const [trabajoActual, setTrabajoActual] = useState(0);
@@ -17,16 +15,15 @@ const Rutina = () => {
         if (crono == false) return;
 
         setTimeout(() => {
-            if (contador > 0) setContador(current => current - 1);
+            if (contador > 0) setContador((current) => current - 1);
             else {
                 if (ejercicioActual < trabajo.rutina.length - 1) {
-                    setEjercicioActual(current => current + 1);
+                    setEjercicioActual((current) => current + 1);
                     setContador(5);
-                }
-                else {
-                    setCrono(false);
-                    setContador(5);
+                } else {
+                    //setCrono(false);
                     setEjercicioActual(0);
+                    setContador(5);
                 }
             }
         }, 1000);
@@ -38,28 +35,21 @@ const Rutina = () => {
         trabajo.rutina.length,
     ]);
 
-    const siguienteTrabajo = () => {
-        setTrabajoActual((current) => (current + 1) % trabajosData.length);
-        setEjercicioActual(0);
-        setContador(5);
-        setCrono(false);
+    const ejercicioSiguiente = () => {
+        if (ejercicioActual == trabajo.rutina.length - 1) setEjercicioActual(0);
+        else setEjercicioActual(current => current + 1);
     };
 
-    const anteriorTrabajo = () => {
-        setTrabajoActual(
-            (current) =>
-                (current - 1 + trabajosData.length) % trabajosData.length
-        );
-        setEjercicioActual(0);
-        setContador(5);
-        setCrono(false);
+    const ejercicioAnterior = () => {
+        if (ejercicioActual == 0) setEjercicioActual(trabajo.rutina.length - 1);
+        else setEjercicioActual(current => current - 1);
     };
 
     return (
         <div>
             <center>
                 <h1>{trabajo.titulo}</h1>
-                <button onClick={anteriorTrabajo}>Anterior rutina</button>
+                <button onClick={ejercicioAnterior}>Anterior</button>
                 &nbsp;&nbsp;&nbsp;&nbsp;
                 <button onClick={() => setCrono(true)} disabled={crono}>
                     INICIAR RUTINA
@@ -69,22 +59,23 @@ const Rutina = () => {
                     {crono ? "PAUSAR" : "CONTINUAR"}
                 </button>
                 &nbsp;&nbsp;&nbsp;&nbsp;
-                <button onClick={siguienteTrabajo}>Siguiente rutina</button>
+                <button onClick={ejercicioSiguiente}>Siguiente</button>
             </center>
 
             <center>Tiempo {contador} segundos</center>
 
             {/* <Row> */}
-            {trabajo.rutina.map((ejercicio, indice) => (
-                <div key={indice}>
-                    <img
-                        src={ejercicio.img}
-                        onClick={() => setEjercicioActual(indice)}
-                        alt=""
-                        width={20}
-                    />
-                </div>
-            ))}
+            <section className="image-gallery">
+                {trabajo.rutina.map((ejercicio, indice) => (
+                    <div key={indice}>
+                        <img
+                            src={ejercicio.img}
+                            onClick={() => setEjercicioActual(indice)}
+                            alt=""
+                        />
+                    </div>
+                ))}
+            </section>
             {/* </Row> */}
 
             {/* <ImagenSeleccionada> */}
