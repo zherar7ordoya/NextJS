@@ -43,3 +43,7 @@ button {
 button:hover {
     background-color: #cccccc;
 }
+
+nav {
+    margin-bottom: 20px;
+}
