@@ -1,5 +1,5 @@
-import { ArticleOverview } from "./ArticleOverview";
-import { ArticleInformation } from "./ArticleInformation";
+import ArticleOverview from "./ArticleOverview";
+import ArticleInformation from "./ArticleInformation";
 
 export function MainContent() {
     return (

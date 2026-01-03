@@ -1,4 +1,4 @@
-export function ArticleInformation() {
+export default function ArticleInformation() {
     return (
         <article>
             <h2>Key Information</h2>

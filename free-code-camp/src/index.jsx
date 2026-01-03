@@ -10,15 +10,9 @@
  * everything that will get displayed on your page).
  */
 
-import Main from "./components/Main";
-import Navbar from "./components/Navbar";
-import "./App.css";
+import createRoot from "react-dom/client";
+import App from "./App.jsx";
 
-export default function App() {
-    return (
-        <>
-            <Navbar />
-            <Main />
-        </>
-    );
-}
+const root = createRoot.createRoot(document.getElementById("root"));
+
+root.render(<App />);

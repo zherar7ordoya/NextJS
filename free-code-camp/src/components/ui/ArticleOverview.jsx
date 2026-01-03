@@ -1,8 +1,8 @@
-export function ArticleOverview() {
+export default function ArticleOverview() {
     return (
         <article>
             <h2>React Overview</h2>
-            
+
             <section>
                 <h3>Fast Facts</h3>
                 <ul>
@@ -10,7 +10,6 @@ export function ArticleOverview() {
                     <li>Created by Jordan Walke</li>
                 </ul>
             </section>
-
         </article>
     );
 }
