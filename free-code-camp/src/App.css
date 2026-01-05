@@ -8,9 +8,22 @@ body {
     color: white;
 }
 
-.main-header,
-.main-content {
+.main-content,
+.main-header {
     padding: 10px 20px;
+}
+
+.logo-background {
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -60%);
+    width: auto;
+    height: 300px;
+    opacity: 0.1;
+    z-index: 0;
+    /* Image color grayscale */
+    filter: grayscale(100%);
 }
 
 .navbar {
@@ -46,12 +59,13 @@ body {
     color: white;
 }
 
-.facts-list li::marker {
+.facts-list > li::marker {
     color: #61dafb;
-    margin-top: 40px;
+    font-size: 2rem;
+    line-height: 40px;
 }
 
-.facts-list li {
+.facts-list > li {
     max-width: 400px;
     line-height: 40px;
     padding-block: 10px;

@@ -5,7 +5,7 @@ export default function HeaderContent() {
                 {/* Agrupamos el logo y nombre en un link de inicio */}
                 <a href="/" className="logo-container">
                     <img
-                        src="./react-logo.png"
+                        src="./images/react-logo.png"
                         alt="React Logo"
                         className="logo"
                     />
