@@ -10,15 +10,15 @@
  * everything that will get displayed on your page).
  */
 
-import Main from "./components/Main";
-import Navbar from "./components/Navbar";
+import HeaderContent from "./components/HeaderContent";
+import MainContent from "./components/MainContent";
 import "./App.css";
 
 export default function App() {
     return (
         <>
-            <Navbar />
-            <Main />
+            <HeaderContent />
+            <MainContent />
         </>
     );
 }

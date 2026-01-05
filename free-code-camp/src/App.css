@@ -2,22 +2,57 @@
     font-family: "Inter", system-ui, -apple-system, sans-serif;
 }
 
-header {
+body {
+    margin: 0;
+    background-color: #282d35;
+    color: white;
+}
+
+.main-header,
+.main-content {
+    padding: 10px 20px;
+}
+
+.navbar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 10px 20px;
 }
 
 .logo {
     height: 55px;
 }
 
-.navigation {
+.logo-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+}
+
+.brand-name {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #61dafb;
+}
+
+.navigation-menu {
     list-style: none;
     display: flex;
     flex-direction: row;
     gap: 20px;
     margin: 0;
     padding: 0;
+    color: white;
+}
+
+.facts-list li::marker {
+    color: #61dafb;
+    margin-top: 40px;
+}
+
+.facts-list li {
+    max-width: 400px;
+    line-height: 40px;
+    padding-block: 10px;
 }
