@@ -68,12 +68,19 @@ body {
     margin: 16px 0;
     background-color: #fff;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    gap: 16px;
 }
 
 .place-image {
-    width: 25%;
+    width: 20%;
     height: auto;
     border-radius: 4px;
+}
+
+.place-icon {
+    height: 20px;
+    width: auto;
 }
 
 .place-details {
