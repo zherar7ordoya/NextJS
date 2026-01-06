@@ -10,15 +10,17 @@
  * everything that will get displayed on your page).
  */
 
-import HeaderContent from "./components/HeaderContent";
-import MainContent from "./components/MainContent";
 import "./App.css";
+import HeaderContent from "./components/ui/HeaderContent";
+import MainContent from "./components/ui/MainContent";
+import FooterContent from "./components/ui/FooterContent";
 
 export default function App() {
     return (
         <>
             <HeaderContent />
             <MainContent />
+            <FooterContent />
         </>
     );
 }

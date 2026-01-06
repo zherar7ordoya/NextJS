@@ -1,72 +1,132 @@
+/* File: src/App.css */
+
 :root {
     font-family: "Inter", system-ui, -apple-system, sans-serif;
 }
 
 body {
-    margin: 0;
-    background-color: #282d35;
-    color: white;
+    background-color: beige;
+    padding: 10px;
 }
 
-.main-content,
-.main-header {
-    padding: 10px 20px;
+/* Header Styling */
+.header-content {
+    /* Center all header content */
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    background-color: salmon;
 }
 
-.logo-background {
-    position: absolute;
-    top: 50%;
-    left: 40%;
-    transform: translate(-50%, -60%);
-    width: auto;
-    height: 300px;
-    opacity: 0.1;
-    z-index: 0;
-    /* Image color grayscale */
-    filter: grayscale(100%);
-}
+/* Logo and Brand Name Container */
 
-.navbar {
+.lb-container {
+    /* Use flexbox to align items horizontally and center them vertically */
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 10px; /* Space between logo and brand name */
 }
 
-.logo {
-    height: 55px;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    gap: 10px;
+/* Ensure the anchor shows like plain text (no link color or underline) */
+.lb-container,
+.lb-container:link,
+.lb-container:visited,
+.lb-container:hover,
+.lb-container:focus {
     text-decoration: none;
+    color: inherit;
+}
+
+.lb-container .brand-name {
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo-image {
+    height: 55px;
 }
 
 .brand-name {
     font-size: 1.5rem;
     font-weight: bold;
-    color: #61dafb;
 }
 
-.navigation-menu {
-    list-style: none;
+.navbar {
     display: flex;
-    flex-direction: row;
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-    color: white;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 
-.facts-list > li::marker {
-    color: #61dafb;
-    font-size: 2rem;
-    line-height: 40px;
+/* Main Content Styling */
+
+.place-card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 16px 0;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.facts-list > li {
-    max-width: 400px;
-    line-height: 40px;
-    padding-block: 10px;
+.place-image {
+    width: 25%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.place-details {
+    margin-left: 16px;
+}
+
+.place-location {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #555;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.place-country {
+    font-weight: bold;
+    color: #d9534f; /* Bootstrap's danger color */
+}
+
+.place-maps-link {
+    margin-left: auto;
+    font-size: 0.8rem;
+    color: #0275d8; /* Bootstrap's primary color */
+    text-decoration: none;
+}
+
+.place-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin: 8px 0;
+}
+
+.place-dates {
+    font-size: 0.9rem;
+    color: #777;
+    margin-bottom: 12px;
+}
+
+.place-description {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+/* Footer Styling */
+
+.footer-content {
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+    background-color: salmon;
 }
