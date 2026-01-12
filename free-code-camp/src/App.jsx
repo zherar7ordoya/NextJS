@@ -1,23 +1,44 @@
-import "./App.css";
-import HeaderContent from "./components/ui/HeaderContent";
-import MainContent from "./components/ui/MainContent";
-import MainSingle from "./components/ui/MainSingle";
-import FooterContent from "./components/ui/FooterContent";
-
-import Places from "../src/assets/places.js";
+import React from "react";
 
 export default function App() {
+    /**
+     * Challenge: Convert the code below to use an array
+     * held in state instead of a local variable. Initialize
+     * the state array as an empty array
+     *
+     * Don't worry about fixing `addFavoriteThing` quite yet.
+     */
+
+    const [myFavoriteThings, setMyFavoriteThings] = React.useState([]);
+
+    const allFavoriteThings = [
+        "💦🌹",
+        "😺",
+        "💡🫖",
+        "🔥🧤",
+        "🟤🎁",
+        "🐴",
+        "🍎🥧",
+        "🚪🔔",
+        "🛷🔔",
+        "🥩🍝",
+    ];
+
+    const thingsElements = myFavoriteThings.map((thing) => (
+        <p key={thing}>{thing}</p>
+    ));
+
+    function addFavoriteThing() {
+        setMyFavoriteThings((prevThings) => [
+            ...prevThings,
+            allFavoriteThings[prevThings.length],
+        ]);
+    }
+
     return (
-        <>
-            <HeaderContent />
-
-            {/* <MainContent /> */}
-
-            {Places.map((place) => (
-                <MainSingle key={place.id} place={place} />
-            ))}
-
-            <FooterContent />
-        </>
+        <main>
+            <button onClick={addFavoriteThing}>Add item</button>
+            <section aria-live="polite">{thingsElements}</section>
+        </main>
     );
 }
