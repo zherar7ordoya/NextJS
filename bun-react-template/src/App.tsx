@@ -1,24 +1,39 @@
-import { APITester } from "./APITester";
-import "./index.css";
+import { useState } from "react";
 
-import logo from "./logo.svg";
-import reactLogo from "./react.svg";
+export default function App() {
+    /**
+     * Challenge: Convert the code below to use an array
+     * held in state instead of a local variable. Initialize
+     * the state array as an empty array
+     *
+     * Don't worry about fixing `addFavoriteThing` quite yet.
+     */
+    const [myFavoriteThings, setMyFavoriteThings] = useState([]);
 
-export function App() {
-  return (
-    <div className="app">
-      <div className="logo-container">
-        <img src={logo} alt="Bun Logo" className="logo bun-logo" />
-        <img src={reactLogo} alt="React Logo" className="logo react-logo" />
-      </div>
+    const allFavoriteThings = [
+        "💦🌹",
+        "😺",
+        "💡🫖",
+        "🔥🧤",
+        "🟤🎁",
+        "🐴",
+        "🍎🥧",
+        "🚪🔔",
+        "🛷🔔",
+        "🥩🍝",
+    ];
+    const thingsElements = myFavoriteThings.map((thing) => (
+        <p key={thing}>{thing}</p>
+    ));
 
-      <h1>Bun + React</h1>
-      <p>
-        Edit <code>src/App.tsx</code> and save to test HMR
-      </p>
-      <APITester />
-    </div>
-  );
+    function addFavoriteThing() {
+        // We'll work on this next, nothing to do here yet.
+    }
+
+    return (
+        <main>
+            <button onClick={addFavoriteThing}>Add item</button>
+            <section aria-live="polite">{thingsElements}</section>
+        </main>
+    );
 }
-
-export default App;
