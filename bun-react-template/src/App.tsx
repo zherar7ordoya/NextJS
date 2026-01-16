@@ -8,7 +8,7 @@ export default function App() {
      *
      * Don't worry about fixing `addFavoriteThing` quite yet.
      */
-    const [myFavoriteThings, setMyFavoriteThings] = useState([]);
+    const [myFavoriteThings, setMyFavoriteThings] = useState<string[]>([]);
 
     const allFavoriteThings = [
         "💦🌹",
@@ -27,7 +27,15 @@ export default function App() {
     ));
 
     function addFavoriteThing() {
-        // We'll work on this next, nothing to do here yet.
+        setMyFavoriteThings((prevThings) => {
+            const nextThing = allFavoriteThings[prevThings.length];
+
+            if (prevThings === undefined || nextThing === undefined)
+                return prevThings;
+
+            //return [...prevThings, nextThing];
+            return [...prevThings, "Test"];
+        });
     }
 
     return (
