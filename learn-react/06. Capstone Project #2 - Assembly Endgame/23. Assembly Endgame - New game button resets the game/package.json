@@ -1,0 +1,19 @@
+{
+  "name": "Scrim-s06j0u2",
+  "description": "https://scrimba.com/learn-react-c0e/~0ymf",
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "19.0.0-rc-a99d8e8d-20240916",
+    "react-dom": "19.0.0-rc-a99d8e8d-20240916",
+    "clsx": "2.1.1",
+    "vite": "latest"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "*"
+  }
+}

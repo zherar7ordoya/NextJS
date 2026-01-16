@@ -1,0 +1,19 @@
+{
+  "name": "Scrim-s01uals",
+  "description": "https://scrimba.com/learn-react-c0e/~0x3k",
+  "scripts": {
+    "watch": "webpack -w",
+    "build": "webpack"
+  },
+  "dependencies": {
+    "react": "16.4.0",
+    "react-dom": "16.4.0",
+    "webpack": "^2.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.0",
+    "babel-loader": "^7.0",
+    "babel-preset-env": "*",
+    "babel-preset-react": "*"
+  }
+}
