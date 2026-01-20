@@ -1,14 +1,16 @@
 {
-  "name": "Scrim-s06ipjt",
-  "description": "https://scrimba.com/learn-react-c0e/~024f",
-  "scripts": {
-    "start": "vite",
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
-  },
-  "dependencies": {
-    "vite": "latest"
-  },
-  "devDependencies": {}
+    "name": "s06ipjt",
+    "description": "https://scrimba.com/learn-react-c0e/~024f",
+    "scripts": {
+        "start": "vite",
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview"
+    },
+    "dependencies": {
+        "vite": "latest"
+    },
+    "devDependencies": {
+        "typescript": "^5.9.3"
+    }
 }
