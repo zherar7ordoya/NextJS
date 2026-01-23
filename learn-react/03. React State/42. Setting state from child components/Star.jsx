@@ -1,27 +1,21 @@
-import React from "react";
 import starFilled from "./images/star-filled.png";
 import starEmpty from "./images/star-empty.png";
 
 export default function Star(props) {
     const starIcon = props.isFilled ? starFilled : starEmpty;
-    console.log(starIcon);
+
     return (
         <button
-            aria-pressed={props.contact.isFavorite}
+            aria-pressed={props.isFilled}
             aria-label={
-                props.contact.isFavorite
-                    ? "Remove from favorites"
-                    : "Add to favorites"
+                props.isFilled ? "Remove from favorites" : "Add to favorites"
             }
             className="favorite-button"
+            onClick={props.onClick}
         >
             <img
                 src={starIcon}
-                alt={
-                    props.contact.isFavorite
-                        ? "filled star icon"
-                        : "empty star icon"
-                }
+                alt={props.isFilled ? "filled star icon" : "empty star icon"}
                 className="favorite"
             />
         </button>
