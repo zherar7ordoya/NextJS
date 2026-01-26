@@ -6,11 +6,11 @@ export default function App() {
     const [pads, setPads] = React.useState(padsData);
 
     function toggle(id) {
-        setPads((prevPads) => {
-            return prevPads.map((pad) => {
-                return pad.id === id ? { ...pad, on: !pad.on } : pad;
-            });
-        });
+        setPads((prevPads) =>
+            prevPads.map((item) => {
+                return item.id === id ? { ...item, on: !item.on } : item;
+            }),
+        );
     }
 
     const buttonElements = pads.map((pad) => (
