@@ -1,13 +1,13 @@
-import React from "react"
-
 export default function Pad(props) {
-    const [on, setOn] = React.useState(props.on)
-    
+    const style = {
+        backgroundColor: props.color,
+    };
+
     return (
-        <button 
-            style={{backgroundColor: props.color}}
-            className={on ? "on" : undefined}
+        <button
+            style={style}
+            className={props.on ? "on" : undefined}
             onClick={() => props.toggle(props.id)}
         ></button>
-    )
+    );
 }
