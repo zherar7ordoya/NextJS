@@ -27,13 +27,14 @@ export default function Main() {
     return (
         <main>
             <form action={addIngredient} className="add-ingredient-form">
+                <label htmlFor="ingredient-input">Add ingredient</label>
                 <input
+                    id="ingredient-input"
                     type="text"
                     placeholder="e.g. oregano"
-                    aria-label="Add ingredient"
                     name="ingredient"
                 />
-                <button>Add ingredient</button>
+                <button>Add</button>
             </form>
 
             {ingredients.length > 0 && (
