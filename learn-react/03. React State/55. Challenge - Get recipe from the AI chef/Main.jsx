@@ -1,7 +1,8 @@
+// File: Main.jsx
+
 import React from "react";
 import IngredientsList from "./components/IngredientsList";
 import ClaudeRecipe from "./components/ClaudeRecipe";
-import { getRecipeFromMistral } from "./ai";
 
 export default function Main() {
     const [ingredients, setIngredients] = React.useState([
@@ -14,9 +15,16 @@ export default function Main() {
     const [recipe, setRecipe] = React.useState("");
 
     async function getRecipe() {
-        const recipeMarkdown = await getRecipeFromMistral(ingredients);
-        console.log(recipeMarkdown);
-        setRecipe(recipeMarkdown);
+        const res = await fetch("http://localhost:3001/api/recipe", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ ingredients }),
+        });
+
+        const data = await res.json();
+        setRecipe(data.recipe);
     }
 
     function addIngredient(formData) {

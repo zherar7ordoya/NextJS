@@ -9,7 +9,9 @@
         "preview": "vite preview"
     },
     "dependencies": {
-        "@huggingface/inference": "2.8.1",
+        "@huggingface/inference": "4.13.11",
+        "cors": "^2.8.6",
+        "express": "^5.2.1",
         "react": "19.0.0-rc-8b08e99e-20240713",
         "react-dom": "19.0.0-rc-8b08e99e-20240713",
         "vite": "latest"
