@@ -1,0 +1,1 @@
+pnpm add typescript -D --allow-build=esbuild
