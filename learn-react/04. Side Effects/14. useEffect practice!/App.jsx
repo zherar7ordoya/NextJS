@@ -1,21 +1,26 @@
-import React from "react"
+import React from "react";
 
 export default function App() {
-    const [starWarsData, setStarWarsData] = React.useState({})
-    const [count, setCount] = React.useState(0)
-    
-    /**
-     * Challenge part 1:
-     * Fetch the data from this url: "https://swapi.dev/api/people/1"
-     * and save it in the starWarsData state. Make sure you don't
-     * get stuck in an infinite rendering loop!
-     */
-    
+    const [starWarsData, setStarWarsData] = React.useState({});
+    const [count, setCount] = React.useState(1);
+
+    const url = `https://swapi.dev/api/people/${count}`;
+
+    React.useEffect(() => {
+        console.log("Fetching Star Wars data of character:", count);
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => setStarWarsData(data))
+            .catch((err) => console.error("Error fetching data:", err));
+    }, [count]);
+
     return (
         <div>
             <h2>The count is {count}</h2>
-            <button onClick={() => setCount(prevCount => prevCount + 1)}>Add</button>
+            <button onClick={() => setCount((prevCount) => prevCount + 1)}>
+                Get next character
+            </button>
             <pre>{JSON.stringify(starWarsData, null, 2)}</pre>
         </div>
-    )
+    );
 }

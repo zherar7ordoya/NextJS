@@ -1,12 +1,12 @@
-import { useState } from "react"
+import React from "react";
 
 export default function Main() {
-    const [meme, setMeme] = useState({
+    const [meme, setMeme] = React.useState({
         topText: "One does not simply",
         bottomText: "Walk into Mordor",
-        imageUrl: "http://i.imgflip.com/1bij.jpg"
-    })
-    
+        imageUrl: "http://i.imgflip.com/1bij.jpg",
+    });
+
     /**
      * Challenge:
      * Get an array of memes from the imgflip API as soon as
@@ -17,26 +17,35 @@ export default function Main() {
      * one of the memes from this array when the user clicks
      * the "Get a new meme image" button, but we'll do that in
      * a separate challenge.)
-     * 
+     *
      * Hint: for now, don't try to use an async/await function.
      * Instead, use `.then()` to resolve the promises
      * from using `fetch`. We'll learn why after this challenge.
      */
-    
-    
-    
+
+    const url = "https://api.imgflip.com/get_memes";
+
+    React.useEffect(() => {
+        fetch(url)
+            .then((res) => res.json())
+            .then((data) => setMemes(data.data.memes));
+    }, []);
+
+    const [memes, setMemes] = React.useState([]);
+
     function handleChange(event) {
-        const {value, name} = event.currentTarget
-        setMeme(prevMeme => ({
+        const { value, name } = event.currentTarget;
+        setMeme((prevMeme) => ({
             ...prevMeme,
-            [name]: value
-        }))
+            [name]: value,
+        }));
     }
 
     return (
         <main>
             <div className="form">
-                <label>Top Text
+                <label>
+                    Top Text
                     <input
                         type="text"
                         placeholder="One does not simply"
@@ -46,7 +55,8 @@ export default function Main() {
                     />
                 </label>
 
-                <label>Bottom Text
+                <label>
+                    Bottom Text
                     <input
                         type="text"
                         placeholder="Walk into Mordor"
@@ -63,5 +73,5 @@ export default function Main() {
                 <span className="bottom">{meme.bottomText}</span>
             </div>
         </main>
-    )
+    );
 }
