@@ -13,6 +13,7 @@
     "vite": "latest"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "*"
+    "@vitejs/plugin-react": "*",
+    "typescript": "^5.9.3"
   }
 }

@@ -1,31 +1,44 @@
-import React from "react"
-import IngredientsList from "./IngredientsList"
-import ClaudeRecipe from "./ClaudeRecipe"
-import { getRecipeFromChefClaude, getRecipeFromMistral } from "../ai"
+import React from "react";
+import IngredientsList from "./IngredientsList";
+import ClaudeRecipe from "./ClaudeRecipe";
+import { getRecipeFromChefClaude, getRecipeFromMistral } from "../ai";
 
 export default function Main() {
-    const [ingredients, setIngredients] = React.useState(
-        ["chicken", "all the main spices", "corn", "heavy cream", "pasta"]
-    )
-    const [recipe, setRecipe] = React.useState("")
-    const recipeSection = React.useRef(null)
-    
+    const [ingredients, setIngredients] = React.useState([
+        "chicken",
+        "all the main spices",
+        "corn",
+        "heavy cream",
+        "pasta",
+    ]);
+    const [recipe, setRecipe] = React.useState("");
+    const recipeSection = React.useRef(null);
+
     React.useEffect(() => {
         if (recipe !== "" && recipeSection.current !== null) {
-            recipeSection.current.scrollIntoView()
+            //recipeSection.current.scrollIntoView();
+            const yCoord =
+                recipeSection.current.getBoundingClientRect().top +
+                window.pageYOffset -
+                20;
+            window.scrollTo({ top: yCoord, behavior: "smooth" });
+            // Why? Because of iFrames messing with the scroll position:
         }
-    }, [recipe])
+    }, [recipe]);
 
     async function getRecipe() {
-        const recipeMarkdown = await getRecipeFromChefClaude(ingredients)
-        setRecipe(recipeMarkdown)
+        const recipeMarkdown = await getRecipeFromChefClaude(ingredients);
+        setRecipe(recipeMarkdown);
     }
 
     function addIngredient(formData) {
-        const newIngredient = formData.get("ingredient")
-        setIngredients(prevIngredients => [...prevIngredients, newIngredient])
+        const newIngredient = formData.get("ingredient");
+        setIngredients((prevIngredients) => [
+            ...prevIngredients,
+            newIngredient,
+        ]);
     }
-    
+
     return (
         <main>
             <form action={addIngredient} className="add-ingredient-form">
@@ -38,15 +51,15 @@ export default function Main() {
                 <button>Add ingredient</button>
             </form>
 
-            {ingredients.length > 0 &&
+            {ingredients.length > 0 && (
                 <IngredientsList
                     ref={recipeSection}
                     ingredients={ingredients}
                     getRecipe={getRecipe}
                 />
-            }
+            )}
 
             {recipe && <ClaudeRecipe recipe={recipe} />}
         </main>
-    )
+    );
 }
