@@ -1,15 +1,21 @@
-import Die from "./Die"
+import Die from "./Die";
 
 /**
  * Challenge:
- * 
- * Write a function (generateAllNewDice) that returns an array 
+ *
+ * Write a function (generateAllNewDice) that returns an array
  * of 10 random numbers between 1-6 inclusive.
- * 
+ *
  * Log the array of numbers to the console for now
  */
 
 export default function App() {
+    function generateAllNewDice() {
+        return Array.from({ length: 10 }, () => Math.ceil(Math.random() * 6));
+    }
+
+    console.log(generateAllNewDice());
+
     return (
         <main>
             <div className="dice-container">
@@ -25,5 +31,5 @@ export default function App() {
                 <Die value={1} />
             </div>
         </main>
-    )
+    );
 }

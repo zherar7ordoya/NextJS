@@ -3,8 +3,9 @@
 }
 
 body {
+    font-family: Inter, sans-serif;
     margin: 0;
-    background-color: #0B2434;
+    background-color: #0b2434;
     padding: 20px;
     height: 100vh;
     display: flex;
@@ -21,8 +22,30 @@ div#root {
 }
 
 main {
-    background-color: #F5F5F5;
+    background-color: #f5f5f5;
     height: 100%;
     border-radius: 5px;
-    
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dice-container {
+    display: grid;
+    grid-template: auto auto / repeat(5, 1fr);
+    gap: 20px;
+}
+
+.dice-container button {
+    height: 50px;
+    width: 50px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.15);
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    font-family: Inter, sans-serif;
+    font-size: 1.75rem;
+    font-weight: bold;
+    cursor: pointer;
 }
