@@ -8,12 +8,13 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "nanoid": "5.0.7",
     "react": "19.0.0-rc-8b08e99e-20240713",
     "react-dom": "19.0.0-rc-8b08e99e-20240713",
-    "nanoid": "5.0.7",
     "vite": "latest"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "*"
+    "@vitejs/plugin-react": "*",
+    "typescript": "^5.9.3"
   }
 }
