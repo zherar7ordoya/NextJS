@@ -18,11 +18,10 @@ export default function App() {
      *    If not, why not?
      *    No, we do not need to save a `gameWon` value in state. The game being
      *    won can be derived from the current state of the dice. We can check if
-     *    all dice are held and have the same value directly in the render
-     *    method or in a function that is called whenever the dice state
-     *    changes. This way, we can determine if the game is won without needing
-     *    to manage an additional piece of state, which would be redundant and
-     *    could lead to unnecessary re-renders.
+     *    all dice are held and have the same value directly in the superior
+     *    part of the component. This way, we can determine if the game is won
+     *    without needing to manage an additional piece of state, which would be
+     *    redundant and problematic.
      *
      *
      * 2. Do we need to create a side effect to synchronize the `gameWon`
