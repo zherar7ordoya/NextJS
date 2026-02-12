@@ -8,13 +8,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "react": "18.3.1",
-    "react-dom": "18.3.1",
     "nanoid": "5.0.7",
+    "react": "18.3.1",
     "react-confetti": "6.1.0",
+    "react-dom": "18.3.1",
     "vite": "latest"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "*"
+    "@vitejs/plugin-react": "*",
+    "typescript": "^5.9.3"
   }
 }
