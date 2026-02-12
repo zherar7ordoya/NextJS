@@ -5,23 +5,9 @@ import { nanoid } from "nanoid";
 export default function App() {
     const [dice, setDice] = useState(generateAllNewDice());
 
-    /**
-     * Challenge:
-     * Log "Game won!" to the console only if the 2 winning
-     * conditions are met.
-     *
-     * 1. all the dice are being held, and
-     * 2. all the dice have the same value
-     *
-     * For now, no need to even save a variable!
-     */
-
-    if (
+    const gameWon =
         dice.every((die) => die.isHeld) &&
-        dice.every((die) => die.value === dice[0].value)
-    ) {
-        console.log("Game won!");
-    }
+        dice.every((die) => die.value === dice[0].value);
 
     function generateAllNewDice() {
         return new Array(10).fill(0).map(() => ({
@@ -67,7 +53,7 @@ export default function App() {
             </p>
             <div className="dice-container">{diceElements}</div>
             <button className="roll-dice" onClick={rollDice}>
-                Roll
+                {gameWon ? "New Game" : "Roll"}
             </button>
         </main>
     );
