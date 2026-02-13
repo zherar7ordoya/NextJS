@@ -6,7 +6,7 @@ body {
     margin: 0;
     font-family: "Hanken Grotesk", Arial, sans-serif;
     background-color: #262626;
-    color: #D9D9D9;
+    color: #d9d9d9;
     padding: 20px;
     height: 100vh;
     display: flex;
@@ -20,11 +20,19 @@ header {
 header > h1 {
     font-size: 1.25rem;
     font-weight: 500;
-    color: #F9F4DA;
+    color: #f9f4da;
 }
 
 header > p {
     font-size: 0.875rem;
     max-width: 350px;
-    color: #8E8E8E;
+    color: #8e8e8e;
+}
+
+.game-status {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #333333;
+    border-radius: 8px;
+    text-align: center;
 }
