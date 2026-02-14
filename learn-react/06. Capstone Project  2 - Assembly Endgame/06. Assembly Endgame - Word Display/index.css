@@ -6,7 +6,7 @@ body {
     margin: 0;
     font-family: "Hanken Grotesk", Arial, sans-serif;
     background-color: #262626;
-    color: #D9D9D9;
+    color: #d9d9d9;
     padding: 20px;
     height: 100vh;
     display: flex;
@@ -20,21 +20,21 @@ header {
 header > h1 {
     font-size: 1.25rem;
     font-weight: 500;
-    color: #F9F4DA;
+    color: #f9f4da;
 }
 
 header > p {
     font-size: 0.875rem;
     max-width: 350px;
-    color: #8E8E8E;
+    color: #8e8e8e;
 }
 
 section.game-status {
-    background-color: #10A95B;
+    background-color: #10a95b;
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: #F9F4DA;
+    color: #f9f4da;
     border-radius: 4px;
     margin-block: 30px;
 }
@@ -45,7 +45,7 @@ section.game-status > p {
 
 section.game-status > h2 {
     font-size: 1.25rem;
-    margin: 5px
+    margin: 5px;
 }
 
 section.language-chips {
@@ -59,4 +59,18 @@ section.language-chips {
 span.chip {
     border-radius: 3px;
     padding: 4.5px;
+}
+
+.game-board {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+span.letter {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin: 0 2px;
+    border-bottom: #10a95b 2px solid;
 }

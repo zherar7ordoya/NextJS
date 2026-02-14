@@ -13,6 +13,11 @@
     "vite": "latest"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "*"
+    "@babel/plugin-proposal-private-methods": "^7.18.6",
+    "@babel/plugin-transform-private-methods": "^7.28.6",
+    "@vitejs/plugin-react": "*",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "eslint-plugin-react-compiler": "19.1.0-rc.2",
+    "typescript": "^5.9.3"
   }
 }

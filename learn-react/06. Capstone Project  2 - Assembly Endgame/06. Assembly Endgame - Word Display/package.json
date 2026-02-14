@@ -13,6 +13,9 @@
     "vite": "latest"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "*"
+    "@vitejs/plugin-react": "*",
+    "babel-plugin-react-compiler": "^1.0.0",
+    "eslint-plugin-react-compiler": "19.1.0-rc.2",
+    "typescript": "^5.9.3"
   }
 }
